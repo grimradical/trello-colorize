@@ -9,6 +9,7 @@
 // ==/UserScript==
 
 var colorize = function() {
+    $(".list-card").css("background-color", "").css("border", "");
     // Blocked
     $(".purple-label").css("background-color", "#cc99ff");
     // Slurm
