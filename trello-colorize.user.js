@@ -23,7 +23,7 @@ var colorize = function() {
     // Feature
     $(".blue-label").css("background-color", "#99ccff");
     // Special visual marker for blocked cards
-    $(".purple-label").filter(".list-card").css("border", "7px solid purple")
+    $(".purple-label").filter(".list-card").css("border", "7px solid purple");
 };
 
 setInterval(colorize, 1000);
