@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Trello card colorizer
 // @namespace  http://github.com/grimradical/trello-colorize
-// @version    0.1
+// @version    0.2
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @description  Changes background color of Trello cards to match labels
 // @match      https://trello.com/board/*
@@ -11,19 +11,20 @@
 var colorize = function() {
     $(".list-card").css("background-color", "").css("border", "");
     // Blocked
-    $(".purple-label").css("background-color", "#cc99ff");
+    $(".list-card:has(.purple-label)").css("background-color", "#cc99ff");
     // Slurm
-    $(".green-label").css("background-color", "#99cc66");
+    $(".list-card:has(.green-label)").css("background-color", "#99cc66");
     // Community-related
-    $(".yellow-label").css("background-color", "#ffff99");
+    $(".list-card:has(.yellow-label)").css("background-color", "#ffff99");
     // ???
-    $(".orange-label").css("background-color", "#ff9966");
+    $(".list-card:has(.orange-label)").css("background-color", "#ff9966");
     // Bug
-    $(".red-label").css("background-color", "#ff9999");
+    $(".list-card:has(.red-label)").css("background-color", "#ff9999");
     // Feature
-    $(".blue-label").css("background-color", "#99ccff");
+    $(".list-card:has(.blue-label)").css("background-color", "#99ccff");
     // Special visual marker for blocked cards
-    $(".purple-label").filter(".list-card").css("border", "7px solid purple");
+    $(".list-card:has(.purple-label)").css("border", "7px solid purple");
 };
-
-setInterval(colorize, 1000);
+$(document).ready(function() {
+  setInterval(colorize, 10000);
+});
